@@ -1,5 +1,7 @@
 {
   "name": "mypocket",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
