@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Storage } from '@ionic/storage';
-import {apiLink} from "../../app/apiurls/serverurls.js";
+import { apiLink } from "../../app/apiurls/serverurls.js";
 
 /*
   Generated class for the AuthProvider provider.
@@ -35,7 +35,7 @@ export class AuthProvider {
     login(credentials){
         return new Promise((resolve, reject) => {
             let headers = new HttpHeaders();
-            //headers.append('Access-Control-Allow-Origin' , '*');
+            headers.append('Access-Control-Allow-Origin' , '*');
             headers.append('Access-Control-Allow-Methods', 'POST, GET, PUT');
             headers.append('Accept','application/json');
             headers.append('Content-Type','application/json');
@@ -46,10 +46,8 @@ export class AuthProvider {
             console.log(JSON.stringify(credentials));
             this.http.post(apiLink+'auth-tokens', body, {headers: headers})
                 .subscribe(res => {
-                    console.log("Provider result", res)
-                    /*this.token = res.token;
-                    this.storage.set('token', res.token);*/
-
+                    this.token = res.value;
+                    this.storage.set('token', res.value);
                     resolve(res);
                 }, (err) => {
                     console.log("Provider error", err)
