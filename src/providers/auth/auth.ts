@@ -1,5 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+import { Storage } from '@ionic/storage';
+import {apiLink} from "../../app/apiurls/serverurls.js";
 
 /*
   Generated class for the AuthProvider provider.
@@ -10,8 +13,79 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthProvider {
 
-  constructor(public http: HttpClient) {
+  public token: any;
+
+  constructor(public storage: Storage , public http: HttpClient) {
     console.log('Hello AuthProvider Provider');
   }
+
+    createAccount(details){
+        return new Promise((resolve, reject) => {
+            let headers = new HttpHeaders();
+            headers.append('Content-Type', 'application/json');
+            this.http.post(apiLink+'auth-tokens', JSON.stringify(details), {headers: headers})
+                .subscribe(res => {
+                    resolve(res);
+                }, (err) => {
+                    reject(err);
+                });
+        });
+    }
+
+    login(credentials){
+        return new Promise((resolve, reject) => {
+            let headers = new HttpHeaders();
+            //headers.append('Access-Control-Allow-Origin' , '*');
+            headers.append('Access-Control-Allow-Methods', 'POST, GET, PUT');
+            headers.append('Accept','application/json');
+            headers.append('Content-Type','application/json');
+            let body = new HttpParams();
+            body = body.set('login', credentials.login);
+            body = body.set('password', credentials.password);
+            console.log(credentials);
+            console.log(JSON.stringify(credentials));
+            this.http.post(apiLink+'auth-tokens', body, {headers: headers})
+                .subscribe(res => {
+                    console.log("Provider result", res)
+                    /*this.token = res.token;
+                    this.storage.set('token', res.token);*/
+
+                    resolve(res);
+                }, (err) => {
+                    console.log("Provider error", err)
+                    reject(err);
+
+                });  });
+
+    }
+
+    checkAuthentication(){
+        return new Promise((resolve, reject) => {
+            this.storage.get('token').then((value) => {
+                this.token = value;
+                resolve(this.token)
+            })
+        });
+    }
+
+    logout(){
+        this.storage.set('token', '');
+    }
+
+    /*getOperations() {
+        let headers = new HttpHeaders();
+        //headers.append('Access-Control-Allow-Origin' , '*');
+        /*headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        headers.append('Accept','application/json');
+        headers.append('content-type','application/json');
+        headers.append("X-Auth-Token", "g/HaMirzO9uLgo87pWCm8LZFqG/s3vY1QJlj3tl7X6+Bwwy0sdxCPQqjtmoWBped/ho=");
+        return new Promise(resolve => {
+            this.http.get(apiKey+'operations', {headers: headers}).subscribe(data => {
+                resolve(data);
+            }, err => {
+                console.log(err);
+            });
+        });
+    }*/
 
 }
