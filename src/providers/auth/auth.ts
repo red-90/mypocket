@@ -19,11 +19,16 @@ export class AuthProvider {
     console.log('Hello AuthProvider Provider');
   }
 
-    createAccount(details){
+    createAccount(user){
         return new Promise((resolve, reject) => {
             let headers = new HttpHeaders();
             headers.append('Content-Type', 'application/json');
-            this.http.post(apiLink+'auth-tokens', JSON.stringify(details), {headers: headers})
+            let body = new HttpParams();
+            body = body.set('fullname', user.fullname);
+            body = body.set('email', user.email);
+            body = body.set('plainPassword', user.password);
+            console.log("body",body);
+            this.http.post(apiLink+'users', body, {headers: headers})
                 .subscribe(res => {
                     resolve(res);
                 }, (err) => {
@@ -46,8 +51,8 @@ export class AuthProvider {
             console.log(JSON.stringify(credentials));
             this.http.post(apiLink+'auth-tokens', body, {headers: headers})
                 .subscribe(res => {
-                    this.token = res.value;
-                    this.storage.set('token', res.value);
+                    this.token = res['value'];
+                    this.storage.set('token', res['value']);
                     resolve(res);
                 }, (err) => {
                     console.log("Provider error", err)

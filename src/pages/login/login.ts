@@ -3,6 +3,7 @@ import { IonicPage,  NavController, AlertController, NavParams } from 'ionic-ang
 import {AuthProvider} from '../../providers/auth/auth';
 
 import {HomePage} from '../home/home';
+import {RegisterPage} from '../register/register';
 /**
  * Generated class for the LoginPage page.
  *
@@ -66,6 +67,10 @@ export class LoginPage {
 
     myLogOut() {
         this.authProvider.logout();
+    }
+
+    Register(){
+        this.navCtrl.setRoot(RegisterPage);
     }
 
 }

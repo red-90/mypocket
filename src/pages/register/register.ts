@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, NavParams } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
 
+import { LoginPage } from '../login/login';
 /**
  * Generated class for the RegisterPage page.
  *
@@ -15,11 +17,54 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    fullname:string = '';
+    password:string = '';
+    email:string = '';
+    errorMsg:string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthProvider, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
 
+    errorFunc(message){
+        let alert = this.alertCtrl.create({
+            title: 'Warining!',
+            subTitle: message,
+            buttons: ['OK']
+        });
+        alert.present();
+    }
+
+    myRegister(){
+
+        if (this.email.trim()  &&  this.fullname.trim()  && this.password.trim() ) {
+            if (this.password.trim()  === '') {
+                this.errorFunc('Please put your password')
+            }else{
+
+                let credentials = {
+                    email: this.email,
+                    fullname: this.fullname,
+                    password: this.password
+                };
+                this.authProvider.createAccount(credentials).then((result) => {
+                    console.log(result);
+                    this.navCtrl.setRoot(LoginPage);
+
+                }, (err) => {
+
+                    console.log(err);
+                    this. errorFunc('Wrong credentials ! try again')
+                    console.log("credentials: "+JSON.stringify(credentials))
+
+                });
+            }
+        }
+        else{
+            this. errorFunc('Please put a vaild password !  for ex:(123456)')
+        }
+    }
 }
