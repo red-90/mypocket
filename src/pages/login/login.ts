@@ -65,10 +65,6 @@ export class LoginPage {
         }
     }
 
-    myLogOut() {
-        this.authProvider.logout();
-    }
-
     Register(){
         this.navCtrl.setRoot(RegisterPage);
     }
