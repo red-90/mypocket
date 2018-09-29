@@ -12,13 +12,15 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { AuthProvider } from '../providers/auth/auth';
 import { CrudProvider } from '../providers/crud/crud';
+import {MainPage} from "../pages/main/main";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    MainPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { CrudProvider } from '../providers/crud/crud';
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    MainPage
   ],
   providers: [
     StatusBar,

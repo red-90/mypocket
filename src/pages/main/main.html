@@ -1,0 +1,23 @@
+<ion-menu [content]="mycontent">
+
+  <ion-content>
+    <ion-list>
+      <button ion-item menuClose (click)="openPage(homePage)">
+        Home
+      </button>
+      <button ion-item menuClose (click)="openPage(loginPage)">
+        login
+      </button>
+      <button ion-item menuClose (click)="openPage(registerPage)">
+        Register
+      </button>
+
+      <div padding>
+        <button ion-button color="secondary"  (click)="myLogOut()" >Log Out</button>
+      </div>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

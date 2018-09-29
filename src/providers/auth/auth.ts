@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Storage } from '@ionic/storage';
 import { apiLink } from "../../app/apiurls/serverurls.js";
+import {RegisterPage} from "../../pages/register/register";
 
 /*
   Generated class for the AuthProvider provider.

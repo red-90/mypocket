@@ -17,8 +17,4 @@ export class HomePage {
       })
   }
 
-  myLogOut() {
-   this.authProvider.logout();
-  }
-
 }
