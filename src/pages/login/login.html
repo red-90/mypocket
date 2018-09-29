@@ -18,8 +18,6 @@
     <form (ngSubmit)="myLogIn()">
       <ion-row>
         <ion-col>
-          <ion-list inset>
-
             <ion-item>
               <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="email" required></ion-input>
             </ion-item>
@@ -27,18 +25,26 @@
             <ion-item>
               <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="password" required></ion-input>
             </ion-item>
-
-          </ion-list>
         </ion-col>
       </ion-row>
-
+      <ion-row>
+        <span>By clicking the Sign Up button below, you agreed to our <a ion-text color="secondary">privacy policy and terms</a> of use of our website.</span>
+      </ion-row>
       <ion-row>
         <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit">Login</button>
-          <button ion-button class="register-btn" block clear (click)="Register()">Create New Account</button>
+          <button ion-button class="submit-btn" full type="submit">Sign In</button>
         </ion-col>
       </ion-row>
-
+      <ion-row><ion-col> <span>Or</span></ion-col></ion-row>
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button full>Login with Facebook</button>
+          <button ion-button block color="danger">Login with Google</button>
+        </ion-col>
+      </ion-row>
+      <ion-row><ion-col>
+        <span>Not yet a member? <a ion-text color="secondary" (click)="GotoRegisterPage()">Sign Up</a></span>
+      </ion-col></ion-row>
     </form>
   </div>
 </ion-content>
