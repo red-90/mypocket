@@ -1,1 +1,1 @@
-export const apiLink = 'http://mypocket-api.local/';
+export const apiLink = 'http://mypocket-api.local/api/';
