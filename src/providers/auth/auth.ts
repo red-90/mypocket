@@ -73,22 +73,6 @@ export class AuthProvider {
 
     logout(){
         this.storage.set('token', '');
+        this.storage.set('uid', '');
     }
-
-    /*getOperations() {
-        let headers = new HttpHeaders();
-        //headers.append('Access-Control-Allow-Origin' , '*');
-        /*headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
-        headers.append('Accept','application/json');
-        headers.append('content-type','application/json');
-        headers.append("X-Auth-Token", "g/HaMirzO9uLgo87pWCm8LZFqG/s3vY1QJlj3tl7X6+Bwwy0sdxCPQqjtmoWBped/ho=");
-        return new Promise(resolve => {
-            this.http.get(apiKey+'operations', {headers: headers}).subscribe(data => {
-                resolve(data);
-            }, err => {
-                console.log(err);
-            });
-        });
-    }*/
-
 }
