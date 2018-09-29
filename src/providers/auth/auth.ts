@@ -53,6 +53,7 @@ export class AuthProvider {
                 .subscribe(res => {
                     this.token = res['value'];
                     this.storage.set('token', res['value']);
+                    this.storage.set('uid', res['user']['id']);
                     resolve(res);
                 }, (err) => {
                     console.log("Provider error", err)
