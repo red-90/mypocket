@@ -1,3 +1,81 @@
 page-home {
+  .bg-teal {
+    background-color: #00b297;
+  }
 
+  .rounded {
+    border-radius: 3px !important;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
+  .bg-primary {
+    background-color: #0866C6 !important;
+  }
+  .bg-br-primary {
+    background-color: #1D2939;
+  }
+
+  .bg-danger {
+    background-color: #dc3545 !important;
+  }
+
+  .pd-5 {
+    padding: 5px 10px;
+  }
+
+  .align-items-center {
+    align-items: center !important;
+  }
+
+  .d-flex {
+    display: flex !important;
+  }
+
+  .mg-l-20 {
+    margin-left: 20px;
+  }
+  .tx-10 {
+    font-size: 10px;
+  }
+  .tx-uppercase {
+    text-transform: uppercase;
+  }
+  .tx-spacing-1 {
+    letter-spacing: 0.5px;
+  }
+  .tx-white-8 {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .tx-24 {
+    font-size: 24px;
+  }
+
+  .lh-1 {
+    line-height: 1.1;
+  }
+  .tx-bold {
+    font-weight: 700;
+  }
+
+  .mg-b-2 {
+    margin-bottom: 2px;
+    margin-top: 10px;
+  }
+  .tx-white {
+    color: #fff;
+  }
+
+  .tx-11 {
+    font-size: 11px;
+  }
+  .tx-white-6 {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  ion-icon {
+    font-size: 3.5em;
+    color: white;
+  }
 }

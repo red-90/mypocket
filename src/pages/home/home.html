@@ -2,13 +2,64 @@
   <ion-navbar>
     <button ion-button menuToggle><ion-icon ios="ios-menu" md="md-menu"></ion-icon></button>
 
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>Dashboard</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="bg-teal rounded overflow-hidden">
+          <div class="pd-5 d-flex align-items-center">
+            <ion-icon ios="logo-euro" md="logo-euro"></ion-icon>
+            <div class="mg-l-20">
+              <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Income</p>
+              <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">$329,291</p>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="bg-danger rounded overflow-hidden">
+          <div class="pd-5 d-flex align-items-center">
+            <ion-icon ios="logo-euro" md="logo-euro"></ion-icon>
+            <div class="mg-l-20">
+              <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Expenses</p>
+              <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">$329,291</p>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="bg-br-primary rounded overflow-hidden">
+          <div class="pd-5 d-flex align-items-center">
+            <ion-icon ios="logo-euro" md="logo-euro"></ion-icon>
+            <div class="mg-l-20">
+              <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Budget</p>
+              <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">$329,291</p>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="bg-primary rounded overflow-hidden">
+          <div class="pd-5 d-flex align-items-center">
+            <ion-icon ios="logo-euro" md="logo-euro"></ion-icon>
+            <div class="mg-l-20">
+              <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">cumulative savings</p>
+              <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">$329,291</p>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 
   <div  *ngFor=" let operation of operations">
 
