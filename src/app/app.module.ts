@@ -13,7 +13,9 @@ import { RegisterPage } from '../pages/register/register';
 import { AuthProvider } from '../providers/auth/auth';
 import { CrudProvider } from '../providers/crud/crud';
 import { ListOperationPage } from "../pages/operations/list-operation/list-operation";
+import { AddOperationPage } from "../pages/operations/add-operation/add-operation";
 import { ListOperationPageModule } from '../pages/operations/list-operation/list-operation.module';
+import { AddOperationPageModule } from '../pages/operations/add-operation/add-operation.module';
 
 import {MainPage} from "../pages/main/main";
 
@@ -30,7 +32,8 @@ import {MainPage} from "../pages/main/main";
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    ListOperationPageModule
+    ListOperationPageModule,
+    AddOperationPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,7 +41,8 @@ import {MainPage} from "../pages/main/main";
     HomePage,
     LoginPage,
     RegisterPage,
-      ListOperationPage,
+    ListOperationPage,
+    AddOperationPage,
     MainPage
   ],
   providers: [

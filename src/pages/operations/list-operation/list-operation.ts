@@ -30,4 +30,8 @@ export class ListOperationPage {
     console.log('ionViewDidLoad ListOperationPage');
   }
 
+    GotoPage(page) {
+        console.log(page);
+        this.navCtrl.setRoot(page);
+    }
 }

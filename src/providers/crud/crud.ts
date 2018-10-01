@@ -41,4 +41,22 @@ export class CrudProvider {
       });
     });
   }
+
+  addtOperation(operationData){
+    return new Promise((resolve, reject) => {
+        this.storage.get('token').then((value) => {
+            console.log('crud addop',value);
+            let headers = new HttpHeaders({"X-Auth-Token": value});
+            this.http.post(apiLink+'operations',  operationData,  {headers: headers})
+                .map(res => res)
+                .subscribe(data => {
+                    resolve(data);
+                }, (err) => {
+                    reject(err);
+                });
+        })
+
+    });
+  }
+
 }
