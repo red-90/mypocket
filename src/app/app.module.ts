@@ -12,6 +12,9 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { AuthProvider } from '../providers/auth/auth';
 import { CrudProvider } from '../providers/crud/crud';
+import { ListOperationPage } from "../pages/operations/list-operation/list-operation";
+import { ListOperationPageModule } from '../pages/operations/list-operation/list-operation.module';
+
 import {MainPage} from "../pages/main/main";
 
 @NgModule({
@@ -27,7 +30,7 @@ import {MainPage} from "../pages/main/main";
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-
+    ListOperationPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -35,6 +38,7 @@ import {MainPage} from "../pages/main/main";
     HomePage,
     LoginPage,
     RegisterPage,
+      ListOperationPage,
     MainPage
   ],
   providers: [

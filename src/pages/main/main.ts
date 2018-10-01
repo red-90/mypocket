@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { LoginPage } from '../login/login';
 import { RegisterPage } from '../register/register';
-
+import { ListOperationPage } from "../operations/list-operation/list-operation";
 import { AuthProvider } from '../../providers/auth/auth';
 
 /**
@@ -25,11 +25,13 @@ export class MainPage {
     private homePage;
     private loginPage;
     private registerPage;
+    private listOperationPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthProvider) {
       this.homePage = HomePage;
       this.loginPage = LoginPage;
       this.registerPage = RegisterPage;
+      this.listOperationPage = ListOperationPage;
 
       this.authProvider.checkAuthentication().then((res)=>{
         console.log("res : " + res)

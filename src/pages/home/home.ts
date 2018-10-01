@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {AuthProvider} from "../../providers/auth/auth";
 import { CrudProvider } from '../../providers/crud/crud';
+import { ListOperationPage } from "../operations/list-operation/list-operation";
+import {LoginPage} from "../login/login";
 
 @Component({
   selector: 'page-home',
@@ -17,4 +19,9 @@ export class HomePage {
       })
   }
 
+
+  GotoPage(page) {
+      console.log(page);
+        this.navCtrl.setRoot(page);
+  }
 }

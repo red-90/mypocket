@@ -11,7 +11,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <div class="bg-teal rounded overflow-hidden">
+        <div class="bg-teal rounded overflow-hidden" (click)="GotoPage('ListOperationPage')" >
           <div class="pd-5 d-flex align-items-center">
             <ion-icon ios="logo-euro" md="logo-euro"></ion-icon>
             <div class="mg-l-20">
@@ -60,29 +60,5 @@
     </ion-row>
 
   </ion-grid>
-
-  <div  *ngFor=" let operation of operations">
-
-    <ion-list >
-      <ion-item-sliding>
-        <ion-item>
-          <h2> {{operation.name}} </h2>
-          <h4> {{operation.type}} </h4>
-        </ion-item>
-
-        <ion-item-options side="right">
-          <button ion-button color="secondary"  (click)="onEdit(item.id,item.name,item.details )">
-            <ion-icon name="create"></ion-icon>
-            Edit
-          </button>
-          <button ion-button color="danger"  (click)="onDelete(item.id)">
-            <ion-icon name="trash"></ion-icon>
-            Delete
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-list>
-
-  </div>
 
 </ion-content>
